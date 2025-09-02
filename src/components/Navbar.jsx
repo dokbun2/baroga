@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { cn } from '../utils/cn';
-import { Menu, X, Sun, Moon, Edit2, Layers } from 'lucide-react';
+import { Menu, X, Sun, Moon, Edit2, Layers, Download, Upload } from 'lucide-react';
 
 export const Navbar = ({ 
   logo = 'BBALI',
@@ -9,9 +9,12 @@ export const Navbar = ({
   editMode,
   onEditToggle,
   onLogoClick,
+  onBackup,
+  onRestore,
   className
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const fileInputRef = useRef(null);
 
   return (
     <nav
@@ -48,6 +51,39 @@ export const Navbar = ({
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-2">
+            {/* Backup Button */}
+            <button
+              onClick={onBackup}
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-300 dark:border-gray-700"
+              aria-label="Download backup"
+              title="백업 다운로드"
+            >
+              <Download size={18} />
+            </button>
+
+            {/* Restore Button */}
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-300 dark:border-gray-700"
+              aria-label="Upload backup"
+              title="백업 복원"
+            >
+              <Upload size={18} />
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".json"
+              style={{ display: 'none' }}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  onRestore(file);
+                  e.target.value = ''; // Reset input for future uploads
+                }
+              }}
+            />
+
             {/* Theme Toggle */}
             <button
               onClick={onThemeToggle}
@@ -96,6 +132,20 @@ export const Navbar = ({
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
           <div className="px-4 py-3 space-y-2">
+            <button
+              onClick={onBackup}
+              className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <Download size={18} />
+              백업 다운로드
+            </button>
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <Upload size={18} />
+              백업 복원
+            </button>
             <button
               onClick={onThemeToggle}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"

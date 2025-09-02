@@ -97,6 +97,7 @@ const defaultData = {
         { id: 40, name: 'Replit AI', url: 'https://replit.com' },
         { id: 41, name: 'Base44', url: 'https://base44.com' },
         { id: 42, name: 'Bolt', url: 'https://bolt.new' },
+        { id: 51, name: 'Netlify', url: 'https://www.netlify.com' },
       ]
     },
     {
@@ -356,6 +357,60 @@ function App() {
   const reorderCategories = (newCategories) => {
     setCategories(newCategories);
     localStorage.setItem('aiToolsData', JSON.stringify({ categories: newCategories }));
+  };
+
+  // Backup function - download current data as JSON
+  const handleBackup = () => {
+    const dataToBackup = {
+      categories: categories,
+      timestamp: new Date().toISOString(),
+      version: '1.0'
+    };
+    
+    const blob = new Blob([JSON.stringify(dataToBackup, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `baroga-backup-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  // Restore function - upload JSON and restore data
+  const handleRestore = (file) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        
+        // Validate the data structure
+        if (data.categories && Array.isArray(data.categories)) {
+          // Remove icon properties from restored data
+          const categoriesWithoutIcons = data.categories.map(category => ({
+            ...category,
+            services: category.services.map(service => {
+              const { icon, ...serviceWithoutIcon } = service;
+              return serviceWithoutIcon;
+            })
+          }));
+          
+          if (confirm('이 작업은 현재 모든 데이터를 백업 파일의 데이터로 교체합니다. 계속하시겠습니까?')) {
+            setCategories(categoriesWithoutIcons);
+            localStorage.setItem('aiToolsData', JSON.stringify({ categories: categoriesWithoutIcons }));
+            setActiveTab(0); // Reset to first tab
+            alert('백업이 성공적으로 복원되었습니다!');
+          }
+        } else {
+          alert('올바른 백업 파일 형식이 아닙니다.');
+        }
+      } catch (error) {
+        console.error('Error restoring backup:', error);
+        alert('백업 파일을 읽는 중 오류가 발생했습니다. 올바른 JSON 파일인지 확인해주세요.');
+      }
+    };
+    reader.readAsText(file);
   };
 
   // Handle drag start
