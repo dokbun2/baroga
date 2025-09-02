@@ -49,7 +49,7 @@ const defaultData = {
       name: '이미지',
       services: [
         { id: 12, name: 'Midjourney', url: 'https://midjourney.com' },
-        { id: 13, name: 'Nano Banana', url: 'https://nano-banana.com' },
+        { id: 13, name: 'Nano Banana', url: 'https://aistudio.google.com/prompts/new_chat' },
         { id: 14, name: 'Flux', url: 'https://flux.ai' },
         { id: 15, name: 'Sora', url: 'https://openai.com/sora' },
         { id: 16, name: 'Whisk', url: 'https://whisk.com' },
