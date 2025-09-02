@@ -442,6 +442,11 @@ function App() {
         onThemeToggle={toggleTheme}
         editMode={editMode}
         onEditToggle={() => setEditMode(!editMode)}
+        onLogoClick={() => {
+          setActiveTab(0);  // 첫 번째 탭으로 이동
+          setSearchTerm(''); // 검색 초기화
+          window.scrollTo({ top: 0, behavior: 'smooth' }); // 맨 위로 스크롤
+        }}
       />
 
       {/* Hero Section */}

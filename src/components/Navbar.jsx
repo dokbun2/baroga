@@ -8,6 +8,7 @@ export const Navbar = ({
   theme = 'dark',
   editMode,
   onEditToggle,
+  onLogoClick,
   className
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,7 +31,11 @@ export const Navbar = ({
               href="/"
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = '/';
+                if (onLogoClick) {
+                  onLogoClick();
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
               }}
               className="flex-shrink-0 flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
             >
