@@ -536,6 +536,8 @@ function App() {
           setSearchTerm(''); // 검색 초기화
           window.scrollTo({ top: 0, behavior: 'smooth' }); // 맨 위로 스크롤
         }}
+        onBackup={handleBackup}
+        onRestore={handleRestore}
       />
 
       {/* Hero Section */}
