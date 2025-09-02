@@ -157,9 +157,43 @@ function App() {
     }
 
     // Load data from localStorage or use default
-    // 강제로 새 데이터 적용 (검색 카테고리 추가를 위해)
-    setCategories(defaultData.categories);
-    localStorage.setItem('aiToolsData', JSON.stringify(defaultData));
+    const savedData = localStorage.getItem('aiToolsData');
+    if (savedData) {
+      const parsed = JSON.parse(savedData);
+      
+      // 검색 카테고리가 없으면 첫 번째로 추가
+      let updatedCategories = parsed.categories;
+      const hasSearchCategory = updatedCategories.some(cat => cat.name === '검색');
+      
+      if (!hasSearchCategory) {
+        // 검색 카테고리를 첫 번째로 추가
+        const searchCategory = defaultData.categories.find(cat => cat.name === '검색');
+        if (searchCategory) {
+          updatedCategories = [searchCategory, ...updatedCategories];
+        }
+      }
+      
+      // 저장된 데이터에서 아이콘 정보만 제거하고 나머지는 유지
+      const categoriesWithoutIcons = updatedCategories.map(category => ({
+        ...category,
+        services: category.services.map(service => {
+          // icon 속성만 제거하여 ServiceCard에서 자동으로 파비콘을 가져오도록 함
+          const { icon, ...serviceWithoutIcon } = service;
+          return serviceWithoutIcon;
+        })
+      }));
+      
+      setCategories(categoriesWithoutIcons);
+      
+      // 검색 카테고리가 추가되었으면 localStorage 업데이트
+      if (!hasSearchCategory) {
+        localStorage.setItem('aiToolsData', JSON.stringify({ categories: categoriesWithoutIcons }));
+      }
+    } else {
+      // 처음 방문한 사용자에게만 기본 데이터 제공
+      setCategories(defaultData.categories);
+      localStorage.setItem('aiToolsData', JSON.stringify(defaultData));
+    }
 
     // Restore scroll position
     const savedScrollPosition = sessionStorage.getItem('scrollPosition');
