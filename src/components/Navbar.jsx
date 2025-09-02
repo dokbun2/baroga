@@ -26,12 +26,19 @@ export const Navbar = ({
         <div className="flex h-14 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center gap-2">
+            <a 
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = '/';
+              }}
+              className="flex-shrink-0 flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+            >
               <Layers className="h-5 w-5 text-gray-900 dark:text-white" />
               <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                 {logo}
               </h1>
-            </div>
+            </a>
           </div>
 
           {/* Desktop Actions */}
@@ -39,7 +46,7 @@ export const Navbar = ({
             {/* Theme Toggle */}
             <button
               onClick={onThemeToggle}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-300 dark:border-gray-700"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
@@ -53,10 +60,10 @@ export const Navbar = ({
             <button
               onClick={onEditToggle}
               className={cn(
-                "px-3 py-1.5 rounded-lg text-sm font-medium transition-all",
+                "px-3 py-1.5 rounded-lg text-sm font-medium transition-all border",
                 editMode 
-                  ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900"
-                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900 border-gray-900 dark:border-white"
+                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-300 dark:border-gray-700"
               )}
             >
               <Edit2 size={16} className="inline mr-1.5" />
