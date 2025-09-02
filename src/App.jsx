@@ -23,96 +23,106 @@ const defaultData = {
   categories: [
     {
       id: 1,
-      name: 'AI 에이전트',
+      name: '검색',
       services: [
-        { id: 1, name: 'ChatGPT', url: 'https://chat.openai.com', icon: getFaviconUrl('https://chat.openai.com') },
-        { id: 2, name: 'Perplexity', url: 'https://www.perplexity.ai', icon: getFaviconUrl('https://www.perplexity.ai') },
-        { id: 3, name: 'Gemini', url: 'https://gemini.google.com', icon: getFaviconUrl('https://gemini.google.com') },
-        { id: 4, name: 'Genspark', url: 'https://genspark.ai', icon: getFaviconUrl('https://genspark.ai') },
-        { id: 5, name: 'Flowith', url: 'https://flowith.io', icon: getFaviconUrl('https://flowith.io') },
-        { id: 6, name: 'Claude', url: 'https://claude.ai', icon: getFaviconUrl('https://claude.ai') },
-        { id: 7, name: 'Manus', url: 'https://manus.ai', icon: getFaviconUrl('https://manus.ai') },
+        { id: 1, name: '네이버', url: 'https://www.naver.com' },
+        { id: 2, name: '구글', url: 'https://www.google.com' },
+        { id: 3, name: '다음', url: 'https://www.daum.net' },
+        { id: 4, name: '네이트', url: 'https://www.nate.com' },
       ]
     },
     {
       id: 2,
-      name: '이미지',
+      name: 'AI 에이전트',
       services: [
-        { id: 8, name: 'Midjourney', url: 'https://midjourney.com', icon: getFaviconUrl('https://midjourney.com') },
-        { id: 9, name: 'Nano Banana', url: 'https://nano-banana.com', icon: getFaviconUrl('https://nano-banana.com') },
-        { id: 10, name: 'Flux', url: 'https://flux.ai', icon: getFaviconUrl('https://flux.ai') },
-        { id: 11, name: 'Sora', url: 'https://openai.com/sora', icon: getFaviconUrl('https://openai.com/sora') },
-        { id: 12, name: 'Whisk', url: 'https://whisk.com', icon: getFaviconUrl('https://whisk.com') },
-        { id: 13, name: 'Dreamina', url: 'https://dreamina.ai', icon: getFaviconUrl('https://dreamina.ai') },
-        { id: 14, name: 'Qwen', url: 'https://qwen.ai', icon: getFaviconUrl('https://qwen.ai') },
+        { id: 5, name: 'ChatGPT', url: 'https://chat.openai.com' },
+        { id: 6, name: 'Perplexity', url: 'https://www.perplexity.ai' },
+        { id: 7, name: 'Gemini', url: 'https://gemini.google.com' },
+        { id: 8, name: 'Genspark', url: 'https://genspark.ai' },
+        { id: 9, name: 'Flowith', url: 'https://flowith.io' },
+        { id: 10, name: 'Claude', url: 'https://claude.ai' },
+        { id: 11, name: 'Manus', url: 'https://manus.ai' },
       ]
     },
     {
       id: 3,
-      name: '비디오',
+      name: '이미지',
       services: [
-        { id: 15, name: 'VEO 3', url: 'https://veo3.ai', icon: getFaviconUrl('https://veo3.ai') },
-        { id: 16, name: 'Midjourney', url: 'https://midjourney.com', icon: getFaviconUrl('https://midjourney.com') },
-        { id: 17, name: 'Hailuo', url: 'https://hailuo.ai', icon: getFaviconUrl('https://hailuo.ai') },
-        { id: 18, name: 'Higgsfiled', url: 'https://higgsfiled.ai', icon: getFaviconUrl('https://higgsfiled.ai') },
-        { id: 19, name: 'Kling', url: 'https://kling.ai', icon: getFaviconUrl('https://kling.ai') },
-        { id: 20, name: 'Runway', url: 'https://runway.com', icon: getFaviconUrl('https://runway.com') },
-        { id: 21, name: 'Pika Labs', url: 'https://pika.art', icon: getFaviconUrl('https://pika.art') },
-        { id: 22, name: 'Luma AI', url: 'https://lumalabs.ai', icon: getFaviconUrl('https://lumalabs.ai') },
-        { id: 23, name: 'Topaz', url: 'https://topazlabs.com', icon: getFaviconUrl('https://topazlabs.com') },
-        { id: 24, name: 'Freepik', url: 'https://freepik.com', icon: getFaviconUrl('https://freepik.com') },
+        { id: 12, name: 'Midjourney', url: 'https://midjourney.com' },
+        { id: 13, name: 'Nano Banana', url: 'https://nano-banana.com' },
+        { id: 14, name: 'Flux', url: 'https://flux.ai' },
+        { id: 15, name: 'Sora', url: 'https://openai.com/sora' },
+        { id: 16, name: 'Whisk', url: 'https://whisk.com' },
+        { id: 17, name: 'Dreamina', url: 'https://dreamina.ai' },
+        { id: 18, name: 'Qwen', url: 'https://qwen.ai' },
       ]
     },
     {
       id: 4,
-      name: '음성/립싱크',
+      name: '비디오',
       services: [
-        { id: 25, name: 'Elevenlabs', url: 'https://elevenlabs.io', icon: getFaviconUrl('https://elevenlabs.io') },
-        { id: 26, name: 'Perso', url: 'https://perso.ai', icon: getFaviconUrl('https://perso.ai') },
-        { id: 27, name: 'Supertone', url: 'https://supertone.ai', icon: getFaviconUrl('https://supertone.ai') },
-        { id: 28, name: 'Typecast', url: 'https://typecast.ai', icon: getFaviconUrl('https://typecast.ai') },
-        { id: 29, name: 'Heygen', url: 'https://heygen.com', icon: getFaviconUrl('https://heygen.com') },
-        { id: 30, name: 'Hedra', url: 'https://hedra.ai', icon: getFaviconUrl('https://hedra.ai') },
+        { id: 19, name: 'VEO 3', url: 'https://veo3.ai' },
+        { id: 20, name: 'Midjourney', url: 'https://midjourney.com' },
+        { id: 21, name: 'Hailuo', url: 'https://hailuo.ai' },
+        { id: 22, name: 'Higgsfield', url: 'https://higgsfield.ai' },
+        { id: 23, name: 'Kling', url: 'https://klingai.com' },
+        { id: 24, name: 'Runway', url: 'https://runway.com' },
+        { id: 25, name: 'Pika Labs', url: 'https://pika.art' },
+        { id: 26, name: 'Luma AI', url: 'https://lumalabs.ai' },
+        { id: 27, name: 'Topaz', url: 'https://topazlabs.com' },
+        { id: 28, name: 'Freepik', url: 'https://freepik.com' },
       ]
     },
     {
       id: 5,
-      name: '바이브코딩',
+      name: '음성/립싱크',
       services: [
-        { id: 31, name: 'Github', url: 'https://github.com', icon: getFaviconUrl('https://github.com') },
-        { id: 32, name: 'Google AI Studio', url: 'https://aistudio.google.com', icon: getFaviconUrl('https://aistudio.google.com') },
-        { id: 33, name: 'Claude', url: 'https://claude.ai', icon: getFaviconUrl('https://claude.ai') },
-        { id: 34, name: 'Cursor', url: 'https://cursor.sh', icon: getFaviconUrl('https://cursor.sh') },
-        { id: 35, name: 'Lovable', url: 'https://lovable.dev', icon: getFaviconUrl('https://lovable.dev') },
-        { id: 36, name: 'Replit AI', url: 'https://replit.com', icon: getFaviconUrl('https://replit.com') },
-        { id: 37, name: 'Base44', url: 'https://base44.com', icon: getFaviconUrl('https://base44.com') },
-        { id: 38, name: 'Bolt', url: 'https://bolt.new', icon: getFaviconUrl('https://bolt.new') },
+        { id: 29, name: 'Elevenlabs', url: 'https://elevenlabs.io' },
+        { id: 30, name: 'Perso', url: 'https://perso.ai' },
+        { id: 31, name: 'Supertone', url: 'https://supertone.ai' },
+        { id: 32, name: 'Typecast', url: 'https://typecast.ai' },
+        { id: 33, name: 'Heygen', url: 'https://heygen.com' },
+        { id: 34, name: 'Hedra', url: 'https://hedra.ai' },
       ]
     },
     {
       id: 6,
-      name: '음악',
+      name: '바이브코딩',
       services: [
-        { id: 39, name: 'Suno AI', url: 'https://suno.ai', icon: getFaviconUrl('https://suno.ai') },
-        { id: 40, name: 'Udio', url: 'https://udio.com', icon: getFaviconUrl('https://udio.com') },
-        { id: 41, name: 'AIVA', url: 'https://aiva.ai', icon: getFaviconUrl('https://aiva.ai') },
+        { id: 35, name: 'Github', url: 'https://github.com' },
+        { id: 36, name: 'Google AI Studio', url: 'https://aistudio.google.com' },
+        { id: 37, name: 'Claude', url: 'https://claude.ai' },
+        { id: 38, name: 'Cursor', url: 'https://cursor.sh' },
+        { id: 39, name: 'Lovable', url: 'https://lovable.dev' },
+        { id: 40, name: 'Replit AI', url: 'https://replit.com' },
+        { id: 41, name: 'Base44', url: 'https://base44.com' },
+        { id: 42, name: 'Bolt', url: 'https://bolt.new' },
       ]
     },
     {
       id: 7,
-      name: '편집/자막',
+      name: '음악',
       services: [
-        { id: 42, name: 'opus', url: 'https://opus.pro', icon: getFaviconUrl('https://opus.pro') },
-        { id: 43, name: 'Cutback', url: 'https://cutback.ai', icon: getFaviconUrl('https://cutback.ai') },
-        { id: 44, name: 'Capcut', url: 'https://capcut.com', icon: getFaviconUrl('https://capcut.com') },
+        { id: 43, name: 'Suno AI', url: 'https://suno.ai' },
+        { id: 44, name: 'Udio', url: 'https://udio.com' },
+        { id: 45, name: 'AIVA', url: 'https://aiva.ai' },
       ]
     },
     {
       id: 8,
+      name: '편집/자막',
+      services: [
+        { id: 46, name: 'opus', url: 'https://opus.pro' },
+        { id: 47, name: 'Cutback', url: 'https://cutback.video/ko/' },
+        { id: 48, name: 'Capcut', url: 'https://capcut.com' },
+      ]
+    },
+    {
+      id: 9,
       name: '비즈니스',
       services: [
-        { id: 45, name: 'Gamma', url: 'https://gamma.app', icon: getFaviconUrl('https://gamma.app') },
-        { id: 46, name: 'Notebook LM', url: 'https://notebooklm.google.com', icon: getFaviconUrl('https://notebooklm.google.com') },
+        { id: 49, name: 'Gamma', url: 'https://gamma.app' },
+        { id: 50, name: 'Notebook LM', url: 'https://notebooklm.google.com' },
       ]
     }
   ]
@@ -121,7 +131,11 @@ const defaultData = {
 function App() {
   const [theme, setTheme] = useState('dark');
   const [categories, setCategories] = useState([]);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(() => {
+    // Load active tab from sessionStorage
+    const savedTab = sessionStorage.getItem('activeTab');
+    return savedTab ? parseInt(savedTab, 10) : 0;
+  });
   const [editMode, setEditMode] = useState(false);
   const [editingService, setEditingService] = useState(null);
   const [editingCategoryId, setEditingCategoryId] = useState(null);
@@ -143,15 +157,35 @@ function App() {
     }
 
     // Load data from localStorage or use default
-    const savedData = localStorage.getItem('aiToolsData');
-    if (savedData) {
-      const parsed = JSON.parse(savedData);
-      setCategories(parsed.categories || defaultData.categories);
-    } else {
-      setCategories(defaultData.categories);
-      localStorage.setItem('aiToolsData', JSON.stringify(defaultData));
+    // 강제로 새 데이터 적용 (검색 카테고리 추가를 위해)
+    setCategories(defaultData.categories);
+    localStorage.setItem('aiToolsData', JSON.stringify(defaultData));
+
+    // Restore scroll position
+    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+    if (savedScrollPosition) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScrollPosition, 10));
+      }, 100);
     }
   }, []);
+
+  // Save scroll position before page unload
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
+  // Save active tab whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem('activeTab', activeTab.toString());
+  }, [activeTab]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';

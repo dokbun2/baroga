@@ -11,6 +11,22 @@ export const ServiceCard = ({
   showCategory,
   className 
 }) => {
+  // 아이콘이 없으면 파비콘 URL 자동 생성
+  const getIconUrl = () => {
+    if (service.icon) return service.icon;
+    
+    if (service.url && service.url.startsWith('http')) {
+      try {
+        const domain = new URL(service.url).hostname;
+        return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+      } catch {
+        return '🌐';
+      }
+    }
+    return '🌐';
+  };
+  
+  const iconUrl = getIconUrl();
   return (
     <div
       onClick={onClick}
@@ -36,9 +52,9 @@ export const ServiceCard = ({
         <div className="relative p-4 flex flex-col items-center justify-center space-y-3 h-full min-h-[140px]">
           {/* Icon */}
           <div className="text-4xl">
-            {service.icon && service.icon.startsWith('http') ? (
+            {iconUrl && iconUrl.startsWith('http') ? (
               <img 
-                src={service.icon} 
+                src={iconUrl} 
                 alt={service.name}
                 className="w-10 h-10 object-contain"
                 onError={(e) => {
@@ -47,8 +63,8 @@ export const ServiceCard = ({
                 }}
               />
             ) : (
-              <span style={{ display: service.icon && service.icon.startsWith('http') ? 'none' : 'block' }}>
-                {service.icon || '🌐'}
+              <span style={{ display: iconUrl && iconUrl.startsWith('http') ? 'none' : 'block' }}>
+                {iconUrl || '🌐'}
               </span>
             )}
           </div>

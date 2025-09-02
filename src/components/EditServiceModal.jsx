@@ -12,10 +12,23 @@ export function EditServiceModal({ service, isOpen, onClose, onSave }) {
 
   useEffect(() => {
     if (service) {
+      // 편집 모달이 열릴 때 항상 파비콘 URL을 기본값으로 설정
+      let iconValue = '';
+      
+      // URL이 있으면 항상 파비콘 URL을 기본값으로 설정
+      if (service.url && service.url.startsWith('http')) {
+        try {
+          const domain = new URL(service.url).hostname;
+          iconValue = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+        } catch {
+          iconValue = '';
+        }
+      }
+      
       setFormData({
         name: service.name || '',
         url: service.url || '',
-        icon: service.icon || ''
+        icon: iconValue
       });
     }
   }, [service]);
