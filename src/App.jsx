@@ -25,6 +25,7 @@ const defaultData = {
       id: 1,
       name: '검색',
       services: [
+        { id: 55, name: '유튜브', url: 'https://www.youtube.com/?app=desktop&hl=ko&gl=KR' },
         { id: 1, name: '네이버', url: 'https://www.naver.com' },
         { id: 2, name: '구글', url: 'https://www.google.com' },
         { id: 3, name: '다음', url: 'https://www.daum.net' },
@@ -33,6 +34,15 @@ const defaultData = {
     },
     {
       id: 2,
+      name: 'HARUOFF',
+      services: [
+        { id: 52, name: 'AI무비메이커', url: 'https://aivmaker.netlify.app/' },
+        { id: 53, name: '하루강의', url: 'https://gang2.netlify.app/' },
+        { id: 54, name: '페이크메일', url: 'https://internxt.com/temporary-email' },
+      ]
+    },
+    {
+      id: 3,
       name: 'AI 에이전트',
       services: [
         { id: 5, name: 'ChatGPT', url: 'https://chat.openai.com' },
@@ -45,7 +55,7 @@ const defaultData = {
       ]
     },
     {
-      id: 3,
+      id: 4,
       name: '이미지',
       services: [
         { id: 12, name: 'Midjourney', url: 'https://midjourney.com' },
@@ -58,7 +68,7 @@ const defaultData = {
       ]
     },
     {
-      id: 4,
+      id: 5,
       name: '비디오',
       services: [
         { id: 19, name: 'VEO 3', url: 'https://veo3.ai' },
@@ -74,7 +84,7 @@ const defaultData = {
       ]
     },
     {
-      id: 5,
+      id: 6,
       name: '음성/립싱크',
       services: [
         { id: 29, name: 'Elevenlabs', url: 'https://elevenlabs.io' },
@@ -86,7 +96,7 @@ const defaultData = {
       ]
     },
     {
-      id: 6,
+      id: 7,
       name: '바이브코딩',
       services: [
         { id: 35, name: 'Github', url: 'https://github.com' },
@@ -101,7 +111,7 @@ const defaultData = {
       ]
     },
     {
-      id: 7,
+      id: 8,
       name: '음악',
       services: [
         { id: 43, name: 'Suno AI', url: 'https://suno.ai' },
@@ -110,7 +120,7 @@ const defaultData = {
       ]
     },
     {
-      id: 8,
+      id: 9,
       name: '편집/자막',
       services: [
         { id: 46, name: 'opus', url: 'https://opus.pro' },
@@ -119,7 +129,7 @@ const defaultData = {
       ]
     },
     {
-      id: 9,
+      id: 10,
       name: '비즈니스',
       services: [
         { id: 49, name: 'Gamma', url: 'https://gamma.app' },
