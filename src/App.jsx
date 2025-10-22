@@ -34,10 +34,9 @@ const defaultData = {
     },
     {
       id: 2,
-      name: 'HARUOFF',
+      name: 'AI툴비',
       services: [
-        { id: 52, name: 'AI무비메이커', url: 'https://aivmaker.netlify.app/' },
-        { id: 53, name: '하루강의', url: 'https://gang2.netlify.app/' },
+        { id: 52, name: 'AI툴비', url: 'https://aivmaker.vercel.app/' },
         { id: 54, name: '페이크메일', url: 'https://internxt.com/temporary-email' },
       ]
     },
